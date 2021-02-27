@@ -1,12 +1,16 @@
 ﻿using Business.Abstract;
 using Business.Constants;
+using Business.ValidationRules.FluentValidation;
+using Core.CrossCuttingConcerns.Validation;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Concrete;
 using Entities.DTOs;
+using FluentValidation;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using static Core.Aspects.Autofac.Validation.Class1;
 
 namespace Business.Concrete
 {
@@ -21,19 +25,17 @@ namespace Business.Concrete
             _productDal = productDal;
         }
 
+        [ValidationAspect(typeof(ProductValidator))]
         public IResult Add(Product product)
         {
-            if(product.ProductName.Length<2)
-            {
-                return new ErrorResult(Messages.ProductNameInvalid);//static yaptığımız için newlemedik.
-            }
+           
             _productDal.Add(product);
             return new SuccessResult(Messages.ProductAdded);
         }
 
         public IDataResult<List<Product>> GetAll()
         {
-            if (DateTime.Now.Hour==22)
+            if (DateTime.Now.Hour==13)
             {
                 return new ErrorDataResult<List<Product>>(Messages.MaintenanceTime);
             }
