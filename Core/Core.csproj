@@ -2,6 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <UserSecretsId>3ab6a9d9-ac96-4ad1-a848-2f819a0100b5</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
@@ -10,6 +11,8 @@
     <PackageReference Include="Autofac.Extras.DynamicProxy" Version="6.0.0" />
     <PackageReference Include="FluentValidation" Version="9.5.1" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.11" />
+    <PackageReference Include="Microsoft.IdentityModel.Tokens" Version="6.8.0" />
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.8.0" />
   </ItemGroup>
 
 </Project>
