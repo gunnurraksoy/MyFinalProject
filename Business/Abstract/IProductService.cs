@@ -16,6 +16,7 @@ namespace Business.Abstract
         IResult Add(Product product);
         IDataResult<Product> GeyById(int productId);
         IResult Update(Product product);
+        IResult AddTransactionalTest(Product product);
        
     }
 }
